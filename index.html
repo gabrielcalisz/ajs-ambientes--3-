@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJS Ambientes | Proteção e Acabamento</title>
+    <meta name="description" content="Soluções sob medida em redes de proteção, box blindex, telas mosquiteiras e pisos laminados." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ajs: {
+                primary: '#145931',   // Verde escuro (principal)
+                secondary: '#0F4925', // Verde mais escuro (apoio)
+                accent: '#08983B',    // Verde fluorescente/alface (destaques)
+                light: '#B5DC9B',     // Verde claro (fundos suaves)
+                lime: '#B5D34C',      // Amarelo/limão (acento forte)
+                neutral: '#F6F8F6',   // Cinza muito claro
+                text: '#0B1A12',      // Texto quase preto
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      /* Smooth scrolling for anchor links */
+      html { scroll-behavior: smooth; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.24.12"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white text-ajs-text antialiased selection:bg-ajs-lime selection:text-ajs-secondary">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
