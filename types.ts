@@ -7,6 +7,7 @@ export interface Service {
   fullDescription: string;
   benefits: string[];
   images: string[];
+  video?: string;
   icon: LucideIcon;
 }
 

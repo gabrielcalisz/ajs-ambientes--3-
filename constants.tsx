@@ -3,9 +3,13 @@ import { Service, FaqItem } from './types';
 
 export const COMPANY_INFO = {
   name: "AJS Ambientes",
-  whatsapp: "5521981869658", // Atualizado para o número correto
+  whatsapp: "5521981869658", 
+  phoneSecondary: "5521979755002",
+  phoneDisplay: "(21) 98186-9658",
+  phoneSecondaryDisplay: "(21) 97975-5002",
   instagram: "@ajsambientes",
-  instagramUrl: "https://instagram.com/ajsambientes",
+  instagramUrl: "https://www.instagram.com/ajsambientes/",
+  facebookUrl: "https://www.facebook.com/profile.php?id=100092703873209",
   email: "contato@ajsambientes.com.br",
   address: "Atendemos toda a região metropolitana",
 };
@@ -18,9 +22,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Nossas redes de proteção são fabricadas com polietileno de alta densidade, contendo aditivos anti-UV e antioxidantes. Garantem resistência a impactos e durabilidade contra intempéries.",
     benefits: ["Alta resistência (500kg/m²)", "Proteção UV", "Instalação certificada", "Garantia de fábrica"],
     images: [
-      "https://i.imgur.com/aFMtOso.jpeg",
-      "https://i.imgur.com/7FL0vY3.jpeg"
+      "https://i.imgur.com/x407u22.jpeg"
     ],
+    video: "https://i.imgur.com/cmgFxKI.mp4",
     icon: Shield
   },
   {
@@ -30,9 +34,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Estruturas em alumínio com pintura eletrostática e malha de fibra de vidro revestida em PVC. Discretas, laváveis e não desfiam, mantendo sua casa livre de insetos e arejada.",
     benefits: ["Malha ignífuga", "Não impede ventilação", "Design discreto", "Fácil limpeza"],
     images: [
-      "https://i.imgur.com/bHCJHc0.jpeg",
-      "https://i.imgur.com/ZceMbcx.jpeg"
+      "https://i.imgur.com/0SYCwRP.jpeg"
     ],
+    video: "https://i.imgur.com/wUcdH6f.mp4",
     icon: Grid
   },
   {
@@ -42,9 +46,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Trabalhamos com vidro temperado de 8mm, ferragens de alta qualidade e diversas cores de acabamento. Modelos de correr, abrir ou de canto, adaptados ao seu espaço.",
     benefits: ["Vidro Temperado 8mm", "Maior segurança", "Design moderno", "Vedação eficiente"],
     images: [
-      "https://i.imgur.com/FoOlwxq.jpeg",
-      "https://i.imgur.com/lpV9ccg.jpeg"
+      "https://i.imgur.com/NPyoxWc.jpeg"
     ],
+    video: "https://i.imgur.com/rJn98y1.mp4",
     icon: Box
   },
   {
@@ -54,9 +58,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Otimize o espaço abaixo da sua pia com nossos fechamentos em vidro temperado ou acrílico. Soluções que facilitam a limpeza e organizam seus utensílios.",
     benefits: ["Organização", "Higiene", "Variedade de cores", "Durabilidade"],
     images: [
-      "https://i.imgur.com/MdNT7Qt.jpeg",
-      "https://i.imgur.com/ATQcwsj.jpeg"
+      "https://i.imgur.com/Gx4FpBs.jpeg"
     ],
+    video: "https://i.imgur.com/YRzNxuE.mp4",
     icon: MoveDiagonal
   },
   {
@@ -66,9 +70,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Solução prática e estética para áreas internas e externas. Nossa grama sintética possui drenagem eficiente, é macia ao toque e não requer manutenção constante como a grama natural.",
     benefits: ["Baixa manutenção", "Aparência natural", "Antialérgica", "Permeável"],
     images: [
-      "https://i.imgur.com/8GawBiR.jpeg",
-      "https://i.imgur.com/iCjMFIA.jpeg"
+      "https://i.imgur.com/U9rp2HM.jpeg"
     ],
+    video: "https://i.imgur.com/spthzkB.mp4",
     icon: Scissors
   },
   {
@@ -78,9 +82,9 @@ export const SERVICES: Service[] = [
     fullDescription: "Instalação profissional de pisos laminados de grandes marcas. Ideal para quartos e salas, proporcionando conforto térmico, acústico e facilidade na limpeza.",
     benefits: ["Instalação rápida", "Conforto térmico", "Hipoalergênico", "Diversos padrões de madeira"],
     images: [
-      "https://i.imgur.com/wj2i2EY.jpeg",
-      "https://i.imgur.com/3eE3aMo.jpeg"
+      "https://i.imgur.com/W0olI6h.jpeg"
     ],
+    video: "https://i.imgur.com/9KFU9Rk.mp4",
     icon: Layers
   }
 ];

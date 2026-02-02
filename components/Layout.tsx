@@ -28,7 +28,7 @@ const Header = () => {
         <div className="flex items-center gap-2 md:gap-3 cursor-pointer py-1" onClick={() => navigate('/')}>
           <div className="h-10 md:h-16 w-auto flex items-center justify-start overflow-hidden">
              <img 
-              src="https://imgur.com/FUMhAF9.png" 
+              src="https://imgur.com/vuSjNj2.png" 
               alt="AJS Ambientes Logo" 
               className="h-full w-auto object-contain" 
             />
@@ -147,7 +147,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4 bg-white/10 p-2 rounded-lg w-fit">
               <div className="h-12 w-auto flex items-center justify-center overflow-hidden">
-                 <img src="https://imgur.com/FUMhAF9.png" alt="AJS Logo" className="h-full w-auto object-contain" />
+                 <img src="https://imgur.com/vuSjNj2.png" alt="AJS Logo" className="h-full w-auto object-contain" />
               </div>
             </div>
             <p className="text-sm text-gray-400 mb-6 max-w-xs">
@@ -183,7 +183,10 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-ajs-lime shrink-0" size={20} />
-                <span>(21) 98186-9658</span>
+                <div className="flex flex-col">
+                  <span>{COMPANY_INFO.phoneDisplay}</span>
+                  <span>{COMPANY_INFO.phoneSecondaryDisplay}</span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-ajs-lime shrink-0" size={20} />

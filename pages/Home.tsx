@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Instagram, ExternalLink, ChevronDown, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Instagram, ExternalLink, ChevronDown, Star, Facebook } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../components/Button';
 import { SERVICES, COMPANY_INFO, FAQ_ITEMS } from '../constants';
@@ -40,16 +40,48 @@ const Hero = () => {
             Soluções sob medida para o <span className="text-ajs-lime">acabamento</span> do seu ambiente
           </h1>
           <p className="text-lg text-gray-200 mb-8 max-w-lg">
-            Redes de proteção, box blindex, telas mosquiteiras e muito mais. 
-            Garantimos segurança e estética para sua casa ou empresa.
+            A AJS surgiu para reformular os seus ambientes da forma que você sempre imaginou e sonhou, sejam eles ambientes internos ou externos.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button variant="lime" onClick={() => navigate('/contato')}>
               Solicitar Orçamento
             </Button>
             <Button variant="outline" className="border-white text-white hover:bg-white hover:text-ajs-primary" onClick={() => navigate('/servicos')}>
               Ver todos os serviços
             </Button>
+          </div>
+
+          {/* Social Media Mini Cards - Otimizado para Mobile */}
+          <div className="flex flex-row gap-3 w-full sm:w-auto">
+             <a 
+               href={COMPANY_INFO.facebookUrl} 
+               target="_blank" 
+               rel="noreferrer"
+               className="group flex-1 sm:flex-none flex items-center justify-center sm:justify-start gap-3 bg-[#1877F2] text-white px-4 py-3 sm:py-2 rounded-xl shadow-lg hover:brightness-110 transition-all transform hover:-translate-y-1"
+             >
+                <div className="bg-white/20 p-2 sm:p-1.5 rounded-full">
+                  <Facebook size={20} className="sm:w-4 sm:h-4" fill="currentColor" />
+                </div>
+                <div>
+                   <span className="block text-[10px] uppercase font-bold opacity-80 leading-none mb-0.5 text-center sm:text-left">Siga no</span>
+                   <span className="font-bold text-sm leading-none block">Facebook</span>
+                </div>
+             </a>
+
+             <a 
+               href={COMPANY_INFO.instagramUrl} 
+               target="_blank" 
+               rel="noreferrer"
+               className="group flex-1 sm:flex-none flex items-center justify-center sm:justify-start gap-3 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white px-4 py-3 sm:py-2 rounded-xl shadow-lg hover:brightness-110 transition-all transform hover:-translate-y-1"
+             >
+                <div className="bg-white/20 p-2 sm:p-1.5 rounded-full">
+                  <Instagram size={20} className="sm:w-4 sm:h-4" />
+                </div>
+                <div>
+                   <span className="block text-[10px] uppercase font-bold opacity-80 leading-none mb-0.5 text-center sm:text-left">Siga no</span>
+                   <span className="font-bold text-sm leading-none block">Instagram</span>
+                </div>
+             </a>
           </div>
         </motion.div>
 
@@ -188,7 +220,7 @@ const WhyChooseUs = () => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-ajs-lime/10 rounded-full blur-2xl group-hover:bg-ajs-lime/20 transition-colors duration-500"></div>
 
                 <img 
-                  src="https://imgur.com/FUMhAF9.png" 
+                  src="https://imgur.com/vuSjNj2.png" 
                   alt="AJS Ambientes Logo" 
                   className="relative z-10 w-full h-full object-contain drop-shadow-sm transform group-hover:scale-105 transition-transform duration-500 ease-out" 
                 />

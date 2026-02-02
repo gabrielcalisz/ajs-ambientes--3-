@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Check, PhoneCall, Ruler, Calculator, Wrench } from 'lucide-react';
+import { Check, PhoneCall, Ruler, Calculator, Wrench, PlayCircle, Image as ImageIcon } from 'lucide-react';
 import Button from '../components/Button';
 import { SERVICES, COMPANY_INFO } from '../constants';
 import { AnimatedSection } from '../components/AnimatedSection';
@@ -49,44 +49,86 @@ const HowItWorks = () => {
   );
 };
 
-const ServiceImageCarousel = ({ images, title, icon: Icon }: { images: string[], title: string, icon: any }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const ServiceMediaGallery = ({ images, video, title, icon: Icon }: { images: string[], video?: string, title: string, icon: any }) => {
+  const [activeTab, setActiveTab] = useState<'images' | 'video'>('images');
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (images.length <= 1 || activeTab !== 'images') return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4000); // 4 seconds per slide
+      setCurrentImgIndex((prev) => (prev + 1) % images.length);
+    }, 4000); 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, activeTab]);
 
   return (
-    <div className="relative rounded-2xl overflow-hidden shadow-xl group h-[400px] w-full">
-       <div className="absolute inset-0 bg-ajs-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-       
-       {images.map((img, index) => (
-         <img 
-           key={img}
-           src={img} 
-           alt={`${title} - Visualização ${index + 1}`} 
-           className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform ${index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
-         />
-       ))}
+    <div className="flex flex-col gap-3">
+      {/* Media Container */}
+      <div className="relative rounded-2xl overflow-hidden shadow-xl bg-black group h-[350px] sm:h-[400px] w-full">
+         
+         {activeTab === 'images' ? (
+           <>
+             {images.map((img, index) => (
+               <img 
+                 key={img}
+                 src={img} 
+                 alt={`${title} - Visualização ${index + 1}`} 
+                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform ${index === currentImgIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+               />
+             ))}
+             {/* Gradient Overlay */}
+             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none opacity-60"></div>
+             
+             {/* Indicators */}
+             {images.length > 1 && (
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                  {images.map((_, idx) => (
+                    <div 
+                      key={idx}
+                      className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${idx === currentImgIndex ? 'w-6 bg-white' : 'w-2 bg-white/50'}`}
+                    />
+                  ))}
+                </div>
+              )}
+           </>
+         ) : (
+           <div className="w-full h-full flex items-center justify-center bg-black">
+             {video ? (
+               <video 
+                 controls 
+                 className="w-full h-full object-contain"
+                 poster={images[0]} // Use first image as poster
+               >
+                 <source src={video} type="video/mp4" />
+                 Seu navegador não suporta vídeos.
+               </video>
+             ) : (
+               <p className="text-white">Vídeo indisponível</p>
+             )}
+           </div>
+         )}
 
-      {/* Icon badge */}
-      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-3 rounded-lg shadow-sm text-ajs-primary z-20">
-        <Icon size={32} />
+        {/* Floating Icon Badge */}
+        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-3 rounded-lg shadow-sm text-ajs-primary z-20">
+          <Icon size={32} />
+        </div>
       </div>
 
-      {/* Indicators */}
-      {images.length > 1 && (
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
-          {images.map((_, idx) => (
-            <div 
-              key={idx}
-              className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${idx === currentIndex ? 'w-6 bg-white' : 'w-2 bg-white/50'}`}
-            />
-          ))}
+      {/* Tabs / Controls */}
+      {video && (
+        <div className="flex justify-center bg-white p-1 rounded-xl shadow-sm border border-gray-100 w-fit mx-auto">
+          <button 
+            onClick={() => setActiveTab('images')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'images' ? 'bg-ajs-primary text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'}`}
+          >
+            <ImageIcon size={16} /> Fotos
+          </button>
+          <button 
+            onClick={() => setActiveTab('video')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'video' ? 'bg-ajs-primary text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'}`}
+          >
+            <PlayCircle size={16} /> Vídeo
+          </button>
         </div>
       )}
     </div>
@@ -111,11 +153,12 @@ const ServicesPage = () => {
       <div className="container mx-auto px-4 py-16 space-y-24">
         {SERVICES.map((service, index) => (
           <div key={service.id}>
-             <AnimatedSection className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
-              {/* Image Side */}
+             <AnimatedSection className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start`}>
+              {/* Media Side */}
               <div className="w-full lg:w-1/2">
-                <ServiceImageCarousel 
+                <ServiceMediaGallery 
                   images={service.images} 
+                  video={service.video}
                   title={service.title} 
                   icon={service.icon} 
                 />
